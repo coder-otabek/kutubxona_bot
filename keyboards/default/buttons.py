@@ -67,7 +67,8 @@ admin_button = ReplyKeyboardMarkup(
             KeyboardButton(text="👥 Guruhlar")
         ],
         [
-            KeyboardButton(text="Reklama")
+            KeyboardButton(text="Reklama"),
+            KeyboardButton(text="⚙️ Tugmalarni boshqarish")
         ]
     ],
     resize_keyboard=True,

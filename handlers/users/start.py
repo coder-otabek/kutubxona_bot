@@ -5,6 +5,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from utils.db import Database
 from data.config import ADMINS
 from filters import IsPrivate
+from . import dynamic_menu
 from keyboards.default.buttons import *
 from loader import dp, user_ids, bot
 from keyboards.default.buttons import  start_button
@@ -21,6 +22,8 @@ async def get_all_user_ids():
 
 @dp.message_handler(IsPrivate(), commands="start")
 async def start_handler(message: types.Message):
+    # Dinamik menyuda qaysidir bo'lim ichida bo'lsa — asosiy menyuga qaytariladi
+    await dynamic_menu.set_pos(message.from_user.id, dynamic_menu.ROOT_ID)
     text = (
         f"👋 <b>Salom, {message.from_user.first_name}!</b>\n\n"
         f"Sizni <b>Online Kutubxona</b> botida ko'rib turganimizdan mamnunmiz. ✨\n\n"
